@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Port of Montréal</title>
+  <link rel="stylesheet" type="text/css" href="spa_style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/favicon.ico" />
+
+  <script src="https://wzrd.in/standalone/formdata-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+</head>
+
+<body>
+  <nav>
+    <img class="logo" src="img/logo-mtl.png" alt="">
+
+        <div class="link">
+          <a href="#sec-2">About</a>
+          <a href="#sec-3">Activities</a>
+          <a href="#sec-4">Tickets</a>
+          <a href="#sec-5">Reviews</a>
+          <a href="#sec-6">Information</a>
+          <a id="lang-toggle" href="spa-fr.html">FR</a>
+        </div>
+  </nav>
+
+  <div id="tracker"></div>
+
+  <section class="section" id="sec-1">
+    <h1 class="headline">
+      An adventure awaits!
+    </h1>
+  </section>
+
+  <section class="section" id="sec-2">
+    <div class="about">
+    <h1 class="title">
+      About
+    </h1>
+    <p>
+      Our mission is to develop, manage and host recreational and tourist activities on a large site that is a place of fun
+      and discovery. This major tourist attraction and event venue in Québec draws more than 6 million visitors annually. The
+      Old Port also hosts a variety of cultural and entertainment activities, including food, sports and music events as well
+      as outdoor festivals. It is also home to popular attractions including La Grande Roue de Montréal, Bota Bota
+      spa-sur-l’eau, Voiles en voiles and the Terrasses Bonsecours.
+      <br>
+      <br>
+      Located on a 2.5-kilometre stretch between Old Montréal and the St. Lawrence River, this historic site is a must-see
+      spot for Montrealers and tourists, who can enjoy its esplanade, green spaces and lively programming. The Old Port also
+      accommodates major events, such as Cirque du Soleil performances, Igloofest, Canada Day celebrations and New Year’s
+      festivities, which are held along the shores of the river.
+    </p>
+    </div>
+    <img class="hidden banner" src="img/mtl-banner.png" alt="">
+  </section>
+
+  <section class="section" id="sec-3">
+    <div class="activities">
+      <h1 class="title">
+        Activities
+      </h1>
+
+      <div class="act-1">
+        <div class="grid-1">
+
+        <img class="hidden" src="img/gr-mtl.jpg" alt="">
+          
+        <div class="text">
+        <h2 class="subtitle">
+         Montreal's Observation Wheel
+        </h2>
+        <p>
+          With state-of-the-art technology, Montreal's Observation Wheel was designed to offer you a breathtaking view: all 42
+          cabins are fitted with ultra-clear tempered glass windows, allowing you to feast your eyes on a limitless panoramic view
+          all four seasons of the year. Your comfort is assured by a system that keeps the cabins warm in the winter and cool in
+          the summer.
+          <br>
+          <br>
+          Montreal's Observation Wheel - Canada’s tallest such structure - will show you the beauty of the city from 60 metres
+          above.
+        </p>
+        </div>
+
+        </div>
+        <hr>
+      </div>
+
+      <div class="act-2">
+        <div class="grid-2">
+
+        <div class="text">
+        <h2 class="subtitle">
+          Voiles en Voiles
+        </h2>
+        <p>
+          Voiles en Voiles is an exciting family adventure park that offers aerial obstacle courses, a climbing wall, an
+          inflatable playground and a lot of other outdoor activities in a world of pirate ships.
+          <br>
+          <br>
+          The whole family will be thrilled by this fun adventure. Come move, climb and explore in complete safety in our park
+          specially designed to invite you to surpass yourself!
+        </p>
+        </div>
+
+        <img class="hidden" src="img/vv-mtl.jpg" alt="">
+
+        </div>
+        <hr>
+      </div>
+      
+      <div class="act-3">
+        <div class="grid-1">
+
+          <img class="hidden" src="img/zp-mtl.JPG" alt="">
+
+        <div class="text">
+        <h2 class="subtitle">
+          TYROLIENNE MTL ZIPLINE
+        </h2>
+        <p>
+          Come try the very first urban zipline circuit in Canada and explore Montreal from a bird’s eye view. Experience a thrill
+          like no other thanks to an impressive circuit stretched over the famous île Bonsecours in Montreal’s Old Port, one the
+          city’s busiest tourist areas. Fly over the city like a superhero and share in this unique, safe, and exciting adventure
+          with the whole family!
+        </p>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section" id="sec-4">
+    <div class="tickets">
+      <h1 class="title-ticket">
+        Tickets
+      </h1>
+      <p class="p-ticket">
+        <bold style="font-weight:bold; letter-spacing: 0.5px;"> Order your tickets right now! </bold>
+        <br>
+
+        Visiting the Old Port is completely free! However, if you would like to participate in the activities, you will have to buy tickets. 
+      </p>
+    
+      <div class="container">
+      <form name="submit-to-google-sheet" method="post">
+        <select id="activity" name="activity" required>
+          <option value="" disabled selected>Select your activity</option>
+          <option value="ObservationWheel_EN">Montreal's Observation Wheel</option>
+          <option value="VoilesEnVoiles_EN">Voiles en Voiles</option>
+          <option value="ZiplineMTL_EN">Tyrolienne MTL Zipline</option>
+        </select>
+
+        <div class="grid-ticket-1">
+          <h2 class="ticket-age">Infant </h2>
+          <p class="ticket-desc">Under 2 Years </p>
+          <input type="number" class="infant" name="infant" placeholder="Free" disabled>
+        </div>
+
+        <div class="grid-ticket-1">
+          <h2 class="ticket-age">Child - 6$</b></h2>
+          <p class="ticket-desc">Under 14 Years </p>
+          <input type="number" class="quantity" name="child_6$" placeholder="Quantity">
+        </div>
+
+        <div class="grid-ticket-1">
+          <h2 class="ticket-age">Adult - 12$</h2>
+          <p class="ticket-desc">Above 14 Years </p>
+          <input type="number" class="quantity" name="adult_12$" placeholder="Quantity">
+        </div>
+
+        <div class="grid-ticket-2">
+          <input type="text" class="form_info" name="first_name" placeholder="First Name" required>
+          <input type="text" class="form_info" name="last_name" placeholder="Last Name" required>
+        </div>
+
+        <input type="email" class="form_info" name="email" placeholder="Email" required>
+
+        <button id="ticket-btn" type="submit">Order Now</button>
+      </form>
+
+      </div>
+
+      <p class="js-success-message is-hidden">
+        Success! Your tickets have been ordered.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="sec-5">
+    <div class="reviews">
+      <h1 class="title">
+        Reviews
+      </h1>
+
+      <div class="review-grid">
+
+        <div class="review-box">
+          <p class="review-text">
+            Beautiful place to visit with your family during the summer. Many entertaining events are held at this location every year. A must go!
+          </p>
+
+          <p class="review-author">
+            - Eric Chen
+          </p>
+        </div>
+
+        <div class="review-box">
+          <p class="review-text">
+            I love coming to this location every year, especially during the night! When the night comes, the lights go on! It's a beautiful view, even better if you're riding the observation wheel.
+          </p>
+          
+          <p class="review-author">
+            - Bob Ross
+          </p>
+        </div>
+
+        <div class="review-box">
+          <p class="review-text">
+            A location filled with enjoyment! I enjoy going there from time to time to relax or take a breather with friends or family. You can relax or be energetic at this place. It welcomes everyone! 
+          </p>
+          
+          <p class="review-author">
+            - John Cena
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US -->
+  <section class="section" id="sec-6">
+    <div class="contact">
+      <h1 class="title-contact">
+        Contact Us
+      </h1>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-text">
+            <b class="contact-title">Address:</b>
+            <br>
+            333 de la Commune Ouest, Montréal, Québec H2Y 2E2
+            <br>
+          </p>
+          <p class="contact-text">
+            <b class="contact-title">Email:</b>
+            <br>
+            information@oldportdemontreal.com
+            <br>
+          </p>
+          <p class="contact-text">
+            <b class="contact-title">Phone:</b> 
+            <br>
+            514-496-PORT (7678) or 1 800 971-PORT (7678)
+          </p>
+
+          <button id="get-dir-btn">Get Directions</button>
+        </div>
+
+        <div id="map" class="hidden"></div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <script>
+     //Map
+      let map;
+      let start;
+      let destination;
+      let directionMap;
+      let directionService;
+      let directionDisplay;
+
+      function initMap() {
+        let oldport = new google.maps.LatLng(45.5066881, -73.5519259);
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: oldport,
+          zoom: 15,
+        });
+        const marker = new google.maps.Marker({
+          position: oldport,
+          map: map,
+          animation: google.maps.Animation.DROP,
+        });
+      }
+
+      window.addEventListener("load", function () {
+        const dirBtn = document.querySelector("#get-dir-btn");
+        dirBtn.addEventListener("click", getDirections);
+      });
+
+      function getDirections() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(
+            "You are located at:" +
+            position.coords.latitude +
+            "," +
+            position.coords.longitude
+          );
+          start = new google.maps.LatLng(
+            position.coords.latitude,
+            position.coords.longitude
+          );
+          mapDirections(start);
+        });
+      }
+
+      function mapDirections(start) {
+        directionService = new google.maps.DirectionsService();
+        directionDisplay = new google.maps.DirectionsRenderer();
+        destination = new google.maps.LatLng(45.5066881, -73.5519259);
+        directionDisplay.setMap(map);
+        calcRoute(start, destination);
+      }
+
+      function calcRoute(start, destination) {
+        let request = {
+          origin: start,
+          destination: destination,
+          travelMode: google.maps.TravelMode.DRIVING,
+        };
+
+        directionService.route(request, function (response, status) {
+          if (status == "OK") {
+            directionDisplay.setDirections(response);
+            let markerStart = new google.maps.Marker({
+              position: start,
+              map: map,
+              label: "You are here!",
+            });
+            let markerDestination = new google.maps.Marker({
+              position: destination,
+              map: map,
+              title: "Old Port",
+              label: "Old Port of Montréal",
+            });
+          }
+        });
+      }
+  </script>
+
+  <!-- LANGUAGE TOGGLE -->
+  <script>
+          let sections = document.querySelectorAll(".section");
+            let activeSection = "";
+
+            let langToggle = document.querySelector("#lang-toggle");
+
+            function updateScroll() {
+              sections.forEach(function (section) {
+                // figure out section is within my 1/2 page
+                if (
+                  section.offsetTop - document.documentElement.scrollTop <
+                  window.innerHeight / 2
+                ) {
+                  activeSection = section.id;
+                }
+              });
+
+              requestAnimationFrame(updateScroll);
+            }
+
+            requestAnimationFrame(updateScroll);
+
+            langToggle.addEventListener("click", function (event) {
+              event.preventDefault();
+              window.location.href = event.target.href + "#" + activeSection;
+            });
+  </script>
+
+  <!-- IMAGE + MAP REVEAL -->
+  <script>
+      //Image + Map reveal
+       let tracker = document.querySelector("#tracker");
+       let scrollTop = 0;
+       
+
+        function updateTracker() {
+          // console.log(window.innerHeight);
+          // console.log(document.documentElement.scrollTop);
+          // console.log(document.querySelector('img').offsetTop);
+
+          if (
+            document.querySelectorAll("img")[0].offsetTop <
+            window.innerHeight + document.documentElement.scrollTop
+          ) {
+            document.querySelectorAll("img")[0].classList.remove("hidden");
+          } else {
+            document.querySelectorAll("img")[0].classList.add("hidden");
+          }
+
+          if (
+            document.querySelectorAll("img")[1].offsetTop <
+            window.innerHeight + document.documentElement.scrollTop
+          ) {
+            document.querySelectorAll("img")[1].classList.remove("hidden");
+          } else {
+            document.querySelectorAll("img")[1].classList.add("hidden");
+          }
+
+          if (
+            document.querySelectorAll("img")[2].offsetTop <
+            window.innerHeight + document.documentElement.scrollTop
+          ) {
+            document.querySelectorAll("img")[2].classList.remove("hidden");
+          } else {
+            document.querySelectorAll("img")[2].classList.add("hidden");
+          }
+
+          if (
+            document.querySelectorAll("img")[3].offsetTop <
+            window.innerHeight + document.documentElement.scrollTop
+          ) {
+            document.querySelectorAll("img")[3].classList.remove("hidden");
+          } else {
+            document.querySelectorAll("img")[3].classList.add("hidden");
+          }
+
+          if (
+            document.querySelectorAll("img")[4].offsetTop <
+            window.innerHeight + document.documentElement.scrollTop
+          ) {
+            document.querySelectorAll("img")[4].classList.remove("hidden");
+          } else {
+            document.querySelectorAll("img")[4].classList.add("hidden");
+          }
+
+          if (
+            document.querySelector("#map").offsetTop <
+            window.innerHeight + document.documentElement.scrollTop
+          ) {
+            document.querySelector("#map").classList.remove("hidden");
+          } else {
+            document.querySelector("#map").classList.add("hidden");
+          }
+          requestAnimationFrame(updateTracker);
+        }
+
+        requestAnimationFrame(updateTracker);
+  </script>
+
+  <!-- SUBMIT FORM TO GOOGLE SHEETS -->
+  <script>
+     const scriptURL = "https://script.google.com/macros/s/AKfycbwzkZ_hxZVwoSyPTDeDodokXcPC44LGJgk_Kmdc3mHbsciZIACjhpUipjuKJlTRKHJQ/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const successMessage = document.querySelector(".js-success-message");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => showSuccessMessage(response))
+      });
+
+
+      function showSuccessMessage(response) {
+        console.log("Success!", response);
+        setTimeout(() => {
+          successMessage.classList.remove("is-hidden");
+          //loading.classList.add("is-hidden");
+        }, 500);
+      }
+  </script>
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOKsQNZ3FsAta_dB9UhkrUv93M9_Xc3jA&callback=initMap&libraries=&v=weekly"
+    async>
+  </script>
+
+</body>
