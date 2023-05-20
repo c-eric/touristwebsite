@@ -14,9 +14,16 @@
   <link rel="icon" href="img/favicon.ico" />
 
   <script src="map.js"></script>
+  <script src="togglelang.js"></script>
+  <script src="animation.js"></script>
+  <script src="form.js"></script>
   <script src="https://wzrd.in/standalone/formdata-polyfill@latest"></script>
   <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
   <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOKsQNZ3FsAta_dB9UhkrUv93M9_Xc3jA&callback=initMap&libraries=&v=weekly"
+    async>
+  </script>
 </head>
 
 <body>
@@ -279,209 +286,6 @@
     </div>
   </section>
 
-  <!-- MAP -->
-  <script>
-     //Map
-      let map;
-      let start;
-      let destination;
-      let directionMap;
-      let directionService;
-      let directionDisplay;
-
-      function initMap() {
-        let oldport = new google.maps.LatLng(45.5066881, -73.5519259);
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: oldport,
-          zoom: 15,
-        });
-        const marker = new google.maps.Marker({
-          position: oldport,
-          map: map,
-          animation: google.maps.Animation.DROP,
-        });
-      }
-
-      window.addEventListener("load", function () {
-        const dirBtn = document.querySelector("#get-dir-btn");
-        dirBtn.addEventListener("click", getDirections);
-      });
-
-      function getDirections() {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          console.log(
-            "You are located at:" +
-            position.coords.latitude +
-            "," +
-            position.coords.longitude
-          );
-          start = new google.maps.LatLng(
-            position.coords.latitude,
-            position.coords.longitude
-          );
-          mapDirections(start);
-        });
-      }
-
-      function mapDirections(start) {
-        directionService = new google.maps.DirectionsService();
-        directionDisplay = new google.maps.DirectionsRenderer();
-        destination = new google.maps.LatLng(45.5066881, -73.5519259);
-        directionDisplay.setMap(map);
-        calcRoute(start, destination);
-      }
-
-      function calcRoute(start, destination) {
-        let request = {
-          origin: start,
-          destination: destination,
-          travelMode: google.maps.TravelMode.DRIVING,
-        };
-
-        directionService.route(request, function (response, status) {
-          if (status == "OK") {
-            directionDisplay.setDirections(response);
-            let markerStart = new google.maps.Marker({
-              position: start,
-              map: map,
-              label: "You are here!",
-            });
-            let markerDestination = new google.maps.Marker({
-              position: destination,
-              map: map,
-              title: "Old Port",
-              label: "Old Port of Montréal",
-            });
-          }
-        });
-      }
-  </script>
-
-  <!-- LANGUAGE TOGGLE -->
-  <script>
-          let sections = document.querySelectorAll(".section");
-            let activeSection = "";
-
-            let langToggle = document.querySelector("#lang-toggle");
-
-            function updateScroll() {
-              sections.forEach(function (section) {
-                // figure out section is within my 1/2 page
-                if (
-                  section.offsetTop - document.documentElement.scrollTop <
-                  window.innerHeight / 2
-                ) {
-                  activeSection = section.id;
-                }
-              });
-
-              requestAnimationFrame(updateScroll);
-            }
-
-            requestAnimationFrame(updateScroll);
-
-            langToggle.addEventListener("click", function (event) {
-              event.preventDefault();
-              window.location.href = event.target.href + "#" + activeSection;
-            });
-  </script>
-
-  <!-- IMAGE + MAP REVEAL -->
-  <script>
-      //Image + Map reveal
-       let tracker = document.querySelector("#tracker");
-       let scrollTop = 0;
-       
-
-        function updateTracker() {
-          // console.log(window.innerHeight);
-          // console.log(document.documentElement.scrollTop);
-          // console.log(document.querySelector('img').offsetTop);
-
-          if (
-            document.querySelectorAll("img")[0].offsetTop <
-            window.innerHeight + document.documentElement.scrollTop
-          ) {
-            document.querySelectorAll("img")[0].classList.remove("hidden");
-          } else {
-            document.querySelectorAll("img")[0].classList.add("hidden");
-          }
-
-          if (
-            document.querySelectorAll("img")[1].offsetTop <
-            window.innerHeight + document.documentElement.scrollTop
-          ) {
-            document.querySelectorAll("img")[1].classList.remove("hidden");
-          } else {
-            document.querySelectorAll("img")[1].classList.add("hidden");
-          }
-
-          if (
-            document.querySelectorAll("img")[2].offsetTop <
-            window.innerHeight + document.documentElement.scrollTop
-          ) {
-            document.querySelectorAll("img")[2].classList.remove("hidden");
-          } else {
-            document.querySelectorAll("img")[2].classList.add("hidden");
-          }
-
-          if (
-            document.querySelectorAll("img")[3].offsetTop <
-            window.innerHeight + document.documentElement.scrollTop
-          ) {
-            document.querySelectorAll("img")[3].classList.remove("hidden");
-          } else {
-            document.querySelectorAll("img")[3].classList.add("hidden");
-          }
-
-          if (
-            document.querySelectorAll("img")[4].offsetTop <
-            window.innerHeight + document.documentElement.scrollTop
-          ) {
-            document.querySelectorAll("img")[4].classList.remove("hidden");
-          } else {
-            document.querySelectorAll("img")[4].classList.add("hidden");
-          }
-
-          if (
-            document.querySelector("#map").offsetTop <
-            window.innerHeight + document.documentElement.scrollTop
-          ) {
-            document.querySelector("#map").classList.remove("hidden");
-          } else {
-            document.querySelector("#map").classList.add("hidden");
-          }
-          requestAnimationFrame(updateTracker);
-        }
-
-        requestAnimationFrame(updateTracker);
-  </script>
-
-  <!-- SUBMIT FORM TO GOOGLE SHEETS -->
-  <script>
-     const scriptURL = "https://script.google.com/macros/s/AKfycbwzkZ_hxZVwoSyPTDeDodokXcPC44LGJgk_Kmdc3mHbsciZIACjhpUipjuKJlTRKHJQ/exec";
-      const form = document.forms["submit-to-google-sheet"];
-      const successMessage = document.querySelector(".js-success-message");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => showSuccessMessage(response))
-      });
-
-
-      function showSuccessMessage(response) {
-        console.log("Success!", response);
-        setTimeout(() => {
-          successMessage.classList.remove("is-hidden");
-          //loading.classList.add("is-hidden");
-        }, 500);
-      }
-  </script>
-
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOKsQNZ3FsAta_dB9UhkrUv93M9_Xc3jA&callback=initMap&libraries=&v=weekly"
-    async>
-  </script>
+  
 
 </body>
