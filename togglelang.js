@@ -1,4 +1,4 @@
-let sections = document.querySelectorAll(".section");
+            let sections = document.querySelectorAll(".section");
             let activeSection = "";
 
             let langToggle = document.querySelector("#lang-toggle");
