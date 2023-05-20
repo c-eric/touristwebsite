@@ -1,7 +1,6 @@
 //Image + Map reveal
        let tracker = document.querySelector("#tracker");
        let scrollTop = 0;
-       
 
         function updateTracker() {
           // console.log(window.innerHeight);
