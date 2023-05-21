@@ -6,7 +6,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding: 
-    var(--scroll-padding, 2rem);
+    var(--scroll-padding, 1rem);
 }
 
 body {
