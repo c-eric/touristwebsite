@@ -1,5 +1,5 @@
 # Tourist Website
-The goal of this project was to create an unofficial single-page application of a tourist location in Canada.
+### The goal of this project was to create an unofficial single-page application of a tourist location in Canada.
 
 It contains the following features:
 * Google Maps API: Displays a Google Map with a marker and provides directions.
