@@ -609,7 +609,7 @@ input[name="email"] {
   padding-right: 48px;
   padding-bottom: 35px;
   background-color: #00adef;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .title-contact {
