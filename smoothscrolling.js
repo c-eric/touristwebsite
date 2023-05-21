@@ -1,5 +1,5 @@
 const navigation = document.querySelector(".navbar");
 const navigationHeight = navigation.offsetHeight;
-const scrollPadding = navigationHeight - 8;
+const scrollPadding = navigationHeight - 20;
 
 document.documentElement.style.setProperty("--scroll-padding", `${scrollPadding}px`);
